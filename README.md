@@ -28,13 +28,17 @@ Use this to trigger overlay with links
 ```
 
 #Options
-Links
+**Links**
+```
 <a href="your_link" class="overlay" rel="#overlay-container"></a>
-*href | Link to the page you want to load
+```
+href | Link to the page you want to load
 
-Body
+**Body**
+```
 <body data-min-overlay-width="900"></body>
-*data-min-overlay-width | minimum width of screen to use this functionality
+```
+data-min-overlay-width | minimum width of screen to use this functionality
 
-Placing other divs above the overlay
+**Placing other divs above the overlay**
 *z-index >= 10001
