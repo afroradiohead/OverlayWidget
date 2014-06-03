@@ -1,0 +1,23 @@
+/* use a semi-transparent image for the overlay */
+#overlay {
+	background-color:white;
+	color:black;
+	display:none;
+	background-image:url(transparent.png);
+	width:960px;
+	padding:35px;
+}
+
+#overlay .close {
+	background-image:url(/media/img/overlay/close.png);
+	position:absolute; 
+	right:5px; 
+	top:5px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+#exposeMask{
+	position:fixed !important;
+	background-color: rgb(0, 0, 0) !important;	
+}

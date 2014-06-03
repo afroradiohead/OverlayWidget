@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.0.6/jquery.browser.min.js"></script>
+	<script src="OverlayWidget/jquery.tools.overlay.min.js"></script>
+	<script src="OverlayWidget/overlayWidget.js"></script>
+
+	<link rel="stylesheet" href="OverlayWidget/style.css">
+</head>
+<body>
+	<a href="OverlayWidget/external-sample.html" class="overlay" rel="#overlay" style="text-decoration:none">
+	  <!-- remember that you can use any element inside the trigger -->
+	  <button type="button">Show external page in overlay</button>
+	</a>
+
+
+	<!-- overlayed element -->
+	<div id="overlay">
+	  <!-- the external content is loaded inside this tag -->
+	  <div class="contentWrap"></div>
+	</div>	
+
+	<div id="exposeMask"></div>
+</body>
+</html>
