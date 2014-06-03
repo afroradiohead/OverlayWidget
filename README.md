@@ -41,4 +41,4 @@ Use this to trigger overlay with links
 *data-min-overlay-width* | minimum width of screen to use this functionality
 
 **Placing other divs above the overlay**
-*z-index* >= 10001
+`z-index: 10001`
