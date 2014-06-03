@@ -7,9 +7,9 @@
 	<script src="OverlayWidget/jquery.tools.overlay.min.js"></script>
 	<script src="OverlayWidget/overlayWidget.js"></script>
 
-	<link rel="stylesheet" href="OverlayWidget/style.css">
+	<link rel="stylesheet" href="OverlayWidget/OverlayWidget.css">
 </head>
-<body>
+<body data-min-overlay-width="640">
 	<a href="OverlayWidget/external-sample.html" class="overlay" rel="#overlay-container" style="text-decoration:none">
 	  <!-- remember that you can use any element inside the trigger -->
 	  <button type="button">Show external page in overlay</button>
@@ -18,6 +18,9 @@
 
 	<!-- overlayed element -->
 	<div id="overlay-container">
+	  <div class="close-wrap">
+	  	<a href="#" class="close"></a>
+	  </div>
 	  <!-- the external content is loaded inside this tag -->
 	  <div class="overlay-wrap"></div>
 	</div>	

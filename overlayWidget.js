@@ -1,20 +1,30 @@
 $(document).ready(function(){
+	var minimumOverlayWidth = $("body").data("min-overlay-width");
 	var overlayWrapClass = "overlay-wrap";
 
-	$("a.overlay").overlay({
-        mask: 'darkred',
-        effect: 'apple',		
-		left:"center",
-		top: 50,
-		fixed:false,
-        onBeforeLoad: function() {
-        	var $overlay = this.getOverlay();
+	function init(){
+		if(minimumOverlayWidth == null)
+			minimumOverlayWidth = 640;
 
-            centerElement($overlay);
-            loadPageIntoOverlay(this.getTrigger().attr("href"), $overlay);
-            
-        }
-	});
+		if($(window).width() > minimumOverlayWidth)
+			initializeOverlay();
+	}
+
+	function initializeOverlay(){
+		$("a.overlay").overlay({
+	        mask: 'darkred',
+	        effect: 'apple',		
+			left:"center",
+			top: 50,
+			fixed:false,
+	        onBeforeLoad: function() {
+	        	var $overlay = this.getOverlay();
+
+	            centerElement($overlay);
+	            loadPageIntoOverlay(this.getTrigger().attr("href"), $overlay);
+	        }
+		});		
+	}
 
 	function centerElement($element){
 		$element.css("left", "50%");
@@ -30,4 +40,7 @@ $(document).ready(function(){
 			$wrap.html($parser.find("#overlay"));
 		});
 	}
+
+	
+	init();
 });

@@ -8,15 +8,20 @@
 	padding:35px;
 }
 
-#overlay-container .close {
-	background-image:url(/media/img/overlay/close.png);
-	position:absolute; 
-	right:5px; 
-	top:5px;
+#overlay-container .close-wrap{
+	position: fixed;
+	top:60px;
+	width: 960px;
+}
+#overlay-container .close-wrap .close {
+	background-image:url(close.png);
+	position:absolute;
 	cursor:pointer;
 	height:35px;
 	width:35px;
+	right:-50px;
 }
+
 #exposeMask{
 	position:fixed !important;
 	background-color: rgb(0, 0, 0) !important;	
