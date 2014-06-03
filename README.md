@@ -8,7 +8,7 @@ OverlayWidget
 
 #Sample
 
-Place this before the closing <body> tag
+Place this before the closing `<body>` tag
 ```
 <div id="overlay-container">
   <div class="close-wrap">
