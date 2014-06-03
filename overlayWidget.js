@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var minimumOverlayWidth = $("body").data("min-overlay-width");
 	var overlayWrapClass = "overlay-wrap";
+	var currentUrl = document.URL;
 
 	function init(){
 		if(minimumOverlayWidth == null)
@@ -19,9 +20,13 @@ $(document).ready(function(){
 			fixed:false,
 	        onBeforeLoad: function() {
 	        	var $overlay = this.getOverlay();
+	        	var url = this.getTrigger().attr("href");
 
 	            centerElement($overlay);
-	            loadPageIntoOverlay(this.getTrigger().attr("href"), $overlay);
+	            loadPageIntoOverlay(url, $overlay);
+	        },
+	        onBeforeClose: function(){
+	        	window.location.href = currentUrl;
 	        }
 		});		
 	}
@@ -37,10 +42,15 @@ $(document).ready(function(){
 		$.get(url, function(html){
 			var $parser = $("<div>");
 			$parser.html(html);
-			$wrap.html($parser.find("#overlay"));
+			
+			$wrap.html($parser.find("#overlay:first"));
+
+			var title = $parser.find("title:first").text();
+			window.history.pushState({"html":html,"pageTitle":title},"", url);
 		});
 	}
 
-	
+
+
 	init();
 });
