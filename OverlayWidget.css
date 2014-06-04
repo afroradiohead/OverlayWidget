@@ -6,6 +6,11 @@
 	background-image:url(transparent.png);
 	width:960px;
 	padding:35px;
+	top:50px !important;
+}
+
+#overlay-container.autoload {
+	display:block;
 }
 
 #overlay-container .close-wrap{
