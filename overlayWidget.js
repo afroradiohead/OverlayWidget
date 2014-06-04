@@ -109,3 +109,7 @@ $(document).ready(function(){
 
 	init();
 });
+
+
+
+//@todo: allow other overlays to display properly on pages that autoload overlays
