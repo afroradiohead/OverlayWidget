@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var minimumOverlayWidth = $("body").data("min-overlay-width");
+	var minWidth = $("body").data("overlay-min-width");
+	var closeUrl = $("body").data("overlay-close-url");
 	var overlayWrapClass = "overlay-wrap";
 	var currentUrl = document.URL;
 	var $overlayContent = $("#overlay");
@@ -7,6 +8,8 @@ $(document).ready(function(){
 	var popped = ('state' in window.history && window.history.state !== null);
 	var initialURL = location.href;
 	var autoloadedOverlay = false;
+
+	
 
 	var overlayOptions = {
         mask: 'black',
@@ -24,10 +27,10 @@ $(document).ready(function(){
 	}
 
 	function init(){
-		if(minimumOverlayWidth == null)
-			minimumOverlayWidth = 640;
+		if(minWidth == null)
+			minWidth = 640;
 
-		if($(window).width() > minimumOverlayWidth){
+		if($(window).width() > minWidth){
 			initializeOverlayTriggers();
 
 			if($overlayContent.length > 0){
@@ -62,8 +65,17 @@ $(document).ready(function(){
 			$overlayContainer.addClass("autoload");
 			overlayApi = $overlayContainer.overlay(overlayOptions).data('overlay');
 
-			if(!autoloadedOverlay)
+			if(autoloadedOverlay){
+				overlayApi.onBeforeClose(function(){
+					if(document.referrer.split('/')[2] == location.host){
+						window.history.back();
+					}
+					else
+						window.location.href = closeUrl;
+				});
+			}else{
 				overlayApi.onBeforeClose(_navigateBack);
+			}
 		}
 
 		overlayApi.load();
@@ -112,4 +124,3 @@ $(document).ready(function(){
 
 
 
-//@todo: allow other overlays to display properly on pages that autoload overlays

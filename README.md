@@ -7,6 +7,7 @@ OverlayWidget
 *Will ignore functionality based on width of screen
 *Will autoload on pages with "overlay" id as attribute
 *Will match url in address bar to link
+*Will redirect to *data-overlay-close-url* attribute set in `<body>` set on autoload overlay close
 
 #Sample
 
